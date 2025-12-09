@@ -1,106 +1,89 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>이름에게 - 아이유 (IU)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이름에게 - 아이유</title>
 
-  <style>
-    body {
-      font-family: "Pretendard", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(180deg, #b28cff 0%, #7f6ced 100%);
-      color: #ffffff;
-      text-align: center;
-    }
+<style>
+body {
+  font-family: "Pretendard", sans-serif;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(180deg, #b28cff 0%, #7f6ced 100%);
+  color: white;
+  transition: 0.4s;
+}
 
-    h1 {
-      margin: 40px 0 5px;
-      font-size: 42px;
-      font-weight: 800;
-    }
+body.dark {
+  background: linear-gradient(180deg, #121212 0%, #222 100%);
+  color: #f1f1f1;
+}
 
-    .artist {
-      font-size: 18px;
-      opacity: 0.9;
-      margin-bottom: 32px;
-    }
+.toggle {
+  position: absolute;
+  right:20px;
+  top:20px;
+  padding:10px 16px;
+  background:white;
+  color:#7f6ced;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
 
-    .video-container {
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.25);
-      background: #000;
-    }
+.video {
+  max-width:900px;
+  margin:40px auto;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 45px rgba(0,0,0,0.3);
+}
 
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    textarea {
-      width: 90%;
-      max-width: 900px;
-      height: 160px;
-      margin: 25px auto 0;
-      font-size: 16px;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-      outline: none;
-      resize: none;
-    }
-
-    .home-btn {
-      display: inline-block;
-      margin: 40px auto;
-      background: #ffffff;
-      color: #7f6ced;
-      font-size: 16px;
-      padding: 14px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.18);
-      transition: 0.3s;
-    }
-
-    .home-btn:hover {
-      background: #f3eaff;
-    }
-  </style>
+button.home {
+  margin:30px auto;
+  padding:12px 25px;
+  background:white;
+  color:#7f6ced;
+  border-radius:12px;
+  border:none;
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+}
+</style>
 </head>
 
 <body>
-  <h1>이름에게</h1>
-  <div class="artist">아이유 (IU)</div>
+<button class="toggle" onclick="toggleMode()">다크모드</button>
 
-  <div class="video-container">
-    <iframe
-      width="100%"
-      height="500"
-      src="https://www.youtube.com/embed/tg0BNT_-Jhc"
-      title="아이유 (IU) - 이름에게"
-      frameborder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  </div>
+<h1>이름에게</h1>
+<p>아이유 (IU)</p>
 
-  <div class="content">
-    아이유의 ‘이름에게’는 마음 깊은 곳을 다정하게 어루만지는 위로의 노래야.
-    조용하고 섬세하면서, 가사가 진심 어린 위로처럼 느껴져.
-    힘든 하루 끝에 들으면 조용히 눈물 나게 만드는 따뜻한 곡이야.
-  </div>
+<div class="video">
+  <iframe width="100%" height="500"
+    src="https://www.youtube.com/embed/dY3NvJXm7Pk"
+    title="이름에게"
+    allow="accelerometer;autoplay;encrypted-media;gyroscope"
+    allowfullscreen></iframe>
+</div>
 
-  <textarea placeholder="여기에 나만의 감상을 적어보세요."></textarea>
+<p>
+‘이름에게’는 조용히 마음을 어루만지는 노래야.  
+감정들이 잔잔하게 정리되는 느낌을 주고,  
+하루 끝에서 듣기에 너무 좋은 위로의 음악이야.
+</p>
 
-  <br />
-  <a href="index.html" class="home-btn">홈으로 돌아가기</a>
+<a href="index.html">
+<button class="home">홈으로 돌아가기</button>
+</a>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
+
 </body>
 </html>
