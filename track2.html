@@ -1,173 +1,87 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>혜성 - 윤하</title>
-  <style>
-    :root {
-      --bg-gradient-light: linear-gradient(180deg, #6ac9f8, #7b88e6);
-      --bg-gradient-dark: linear-gradient(180deg, #020617, #0f172a);
-      --card-light: rgba(255, 255, 255, 0.15);
-      --card-dark: rgba(15, 23, 42, 0.9);
-      --text-light: #ffffff;
-      --text-dark: #e5e7eb;
-      --btn-bg-light: #ffffff;
-      --btn-text-light: #111827;
-      --btn-bg-dark: #0f172a;
-      --btn-text-dark: #e5e7eb;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>혜성</title>
 
-    * { box-sizing: border-box; }
+<style>
+body {
+  font-family: "Pretendard", sans-serif;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(180deg, #b28cff 0%, #7f6ced 100%);
+  color: white;
+  transition: 0.4s;
+}
 
-    body {
-      margin: 0;
-      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-gradient-light);
-      color: var(--text-light);
-      min-height: 100vh;
-    }
+body.dark {
+  background: linear-gradient(180deg, #121212 0%, #222 100%);
+  color: #f1f1f1;
+}
 
-    body.dark {
-      background: var(--bg-gradient-dark);
-      color: var(--text-dark);
-    }
+.toggle {
+  position: absolute;
+  right:20px;
+  top:20px;
+  padding:10px 16px;
+  background:white;
+  color:#7f6ced;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-    }
+.video {
+  max-width:900px;
+  margin:40px auto;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 45px rgba(0,0,0,0.3);
+}
 
-    .theme-toggle {
-      border: none;
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.18);
-      color: #111827;
-      backdrop-filter: blur(8px);
-    }
-
-    body.dark .theme-toggle {
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-    }
-
-    .home-link {
-      text-decoration: none;
-      font-size: 14px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      color: inherit;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px 20px 40px;
-      text-align: center;
-    }
-
-    h1 {
-      margin-top: 10px;
-      font-size: 32px;
-    }
-
-    .artist {
-      opacity: 0.9;
-      margin-bottom: 24px;
-    }
-
-    .video-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
-      margin-bottom: 28px;
-    }
-
-    .desc {
-      margin-bottom: 24px;
-      line-height: 1.7;
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 100%;
-      height: 140px;
-      border-radius: 12px;
-      padding: 12px;
-      border: none;
-      font-size: 15px;
-      resize: none;
-      outline: none;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: none;
-      background: var(--btn-bg-light);
-      color: var(--btn-text-light);
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    body.dark .btn {
-      background: var(--btn-bg-dark);
-      color: var(--btn-text-dark);
-    }
-  </style>
+button.home {
+  margin:30px auto;
+  padding:12px 25px;
+  background:white;
+  color:#7f6ced;
+  border-radius:12px;
+  border:none;
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
-  <div class="top-bar">
-    <a href="index.html" class="home-link">← 메인으로</a>
-    <button id="themeToggle" class="theme-toggle">🌙 다크 모드</button>
-  </div>
+<button class="toggle" onclick="toggleMode()">다크모드</button>
 
-  <div class="container">
-    <h1>혜성</h1>
-    <p class="artist">윤하 (Younha)</p>
+<h1>혜성</h1>
+<p>윤하 (Younha)</p>
 
-    <div class="video-wrap">
-      <iframe width="100%" height="400"
-        src="https://www.youtube.com/embed/LuqRkCDTMBY"
-        title="혜성"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </div>
+<div class="video">
+  <iframe width="100%" height="500"
+    src="https://www.youtube.com/embed/Lwmw-ldvcfc"
+    title="혜성"
+    allow="accelerometer;autoplay;encrypted-media;gyroscope"
+    allowfullscreen></iframe>
+</div>
 
-    <p class="desc">
-      혜성은 감정이 한 번에 폭발하는 순간을 담은 듯한 노래야. 폭발적인 보컬과 드라마틱한 멜로디가
-      마음을 강하게 흔들어 주고, 듣다 보면 내가 가진 감정도 같이 터져 나오는 느낌이 들어.
-    </p>
+<p>
+‘혜성’은 마음 속 깊은 울림을 주는 노래야.  
+감정의 폭발과 동시에 따뜻한 위로를 주는 윤하만의 감성이 담겨 있어.
+</p>
 
-    <textarea placeholder="여기에 나만의 감상을 적어보세요."></textarea>
-  </div>
+<a href="index.html">
+<button class="home">홈으로 돌아가기</button>
+</a>
 
-  <script>
-    const body = document.body;
-    const toggleBtn = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-      body.classList.add('dark');
-      toggleBtn.textContent = '☀️ 라이트 모드';
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      const isDark = body.classList.contains('dark');
-      toggleBtn.textContent = isDark ? '☀️ 라이트 모드' : '🌙 다크 모드';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-  </script>
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
 </body>
 </html>
