@@ -1,115 +1,214 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>힐링송 추천</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우울할 때 듣는 힐링송</title>
+  <style>
+    :root {
+      --bg-gradient-light: linear-gradient(180deg, #7b88e6, #7a6ac9);
+      --bg-gradient-dark: linear-gradient(180deg, #050816, #111827);
+      --card-light: rgba(255, 255, 255, 0.15);
+      --card-dark: rgba(15, 23, 42, 0.9);
+      --text-light: #ffffff;
+      --text-dark: #e5e7eb;
+      --btn-bg-light: #ffffff;
+      --btn-text-light: #111827;
+      --btn-bg-dark: #0f172a;
+      --btn-text-dark: #e5e7eb;
+    }
 
-<style>
-body {
-  font-family: "Pretendard", sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: linear-gradient(180deg, #b28cff 0%, #7f6ced 100%);
-  color: white;
-  transition: 0.4s;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body.dark {
-  background: linear-gradient(180deg, #121212 0%, #222 100%);
-  color: #f1f1f1;
-}
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      text-align: center;
+      color: var(--text-light);
+      background: var(--bg-gradient-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-.toggle {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  padding: 10px 16px;
-  background: white;
-  color: #7f6ced;
-  border-radius: 8px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
+    body.dark {
+      background: var(--bg-gradient-dark);
+      color: var(--text-dark);
+    }
 
-.container {
-  max-width: 1100px;
-  margin: 50px auto;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
+    header {
+      padding: 40px 16px 10px;
+    }
 
-.card {
-  width: 300px;
-  padding: 30px 15px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.15);
-  box-shadow: 0px 15px 45px rgba(0,0,0,0.25);
-}
+    h1 {
+      margin: 20px 0 8px;
+      font-size: 40px;
+      font-weight: 700;
+    }
 
-.card h2 {
-  font-size: 26px;
-  margin-bottom: 5px;
-}
+    .subtitle {
+      margin: 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
 
-.card p {
-  opacity: 0.9;
-}
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 24px 0;
+    }
 
-.card button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: white;
-  color: #7f6ced;
-  border-radius: 12px;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
-}
-</style>
+    .theme-toggle {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.18);
+      color: #111827;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+    }
+
+    body.dark .theme-toggle {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 24px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .card {
+      width: 280px;
+      padding: 32px 24px;
+      background: var(--card-light);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.3);
+    }
+
+    body.dark .card {
+      background: var(--card-dark);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .song-title {
+      font-size: 22px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .artist {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      font-size: 15px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      background: var(--btn-bg-light);
+      color: var(--btn-text-light);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+
+    body.dark .btn {
+      background: var(--btn-bg-dark);
+      color: var(--btn-text-dark);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
+    }
+
+    footer {
+      padding: 24px 16px 32px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  </style>
 </head>
-
 <body>
-
-<button class="toggle" onclick="toggleMode()">다크모드</button>
-
-<h1>우울할 때 듣는 힐링송</h1>
-<p>마음이 힘들 때, 기분을 끌어올려주는 감성 노래 추천</p>
-
-<div class="container">
-  <div class="card">
-    <h2>그대가 살아서</h2>
-    <p>정동원</p>
-    <a href="track1.html">
-      <button>들으러 가기</button>
-    </a>
+  <div class="top-bar">
+    <button id="themeToggle" class="theme-toggle">🌙 다크 모드</button>
   </div>
 
-  <div class="card">
-    <h2>혜성</h2>
-    <p>윤하 (Younha)</p>
-    <a href="track2.html">
-      <button>들으러 가기</button>
-    </a>
-  </div>
+  <header>
+    <h1>우울할 때 듣는 힐링송</h1>
+    <p class="subtitle">마음이 힘들 때, 기분을 끌어올려주는 감성 노래 추천</p>
+  </header>
 
-  <div class="card">
-    <h2>이름에게</h2>
-    <p>아이유 (IU)</p>
-    <a href="track3.html">
-      <button>들으러 가기</button>
-    </a>
-  </div>
-</div>
+  <main>
+    <div class="card-container">
 
-<script>
-function toggleMode() {
-  document.body.classList.toggle("dark");
-}
-</script>
+      <!-- 곡 1 : 그대가 살아서 -->
+      <div class="card">
+        <div class="song-title">그대가 살아서</div>
+        <div class="artist">정동원</div>
+        <a href="track1.html" class="btn">들으러 가기</a>
+      </div>
 
+      <!-- 곡 2 : 혜성 -->
+      <div class="card">
+        <div class="song-title">혜성</div>
+        <div class="artist">윤하 (Younha)</div>
+        <a href="track2.html" class="btn">들으러 가기</a>
+      </div>
+
+      <!-- 곡 3 : 이름에게 -->
+      <div class="card">
+        <div class="song-title">이름에게</div>
+        <div class="artist">아이유 (IU)</div>
+        <a href="track3.html" class="btn">들으러 가기</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>감성을 지켜주는 음악들 ✨</footer>
+
+  <script>
+    const body = document.body;
+    const toggleBtn = document.getElementById('themeToggle');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️ 라이트 모드';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggleBtn.textContent = isDark ? '☀️ 라이트 모드' : '🌙 다크 모드';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
