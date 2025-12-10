@@ -18,9 +18,7 @@
       --btn-text-dark: #e5e7eb;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -38,21 +36,9 @@
       color: var(--text-dark);
     }
 
-    header {
-      padding: 40px 16px 10px;
-    }
-
-    h1 {
-      margin: 20px 0 8px;
-      font-size: 40px;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      margin: 0;
-      font-size: 16px;
-      opacity: 0.9;
-    }
+    header { padding: 40px 16px 10px; }
+    h1 { margin: 20px 0 8px; font-size: 40px; font-weight: 700; }
+    .subtitle { margin: 0; font-size: 16px; opacity: 0.9; }
 
     .top-bar {
       display: flex;
@@ -97,13 +83,17 @@
       width: 100%;
     }
 
+    /* 카드 크기 및 정렬 수정 */
     .card {
-      width: 280px;
-      padding: 32px 24px;
+      width: 300px; /* 플레이어 공간 확보 */
+      padding: 24px; /* 여백 조정 */
       background: var(--card-light);
       border-radius: 20px;
       backdrop-filter: blur(10px);
       box-shadow: 0 18px 45px rgba(15, 23, 42, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     body.dark .card {
@@ -111,16 +101,16 @@
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
     }
 
-    .song-title {
-      font-size: 22px;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
+    .song-title { font-size: 20px; margin-bottom: 4px; font-weight: 700; }
+    .artist { font-size: 14px; opacity: 0.85; margin-bottom: 16px; }
 
-    .artist {
-      font-size: 14px;
-      opacity: 0.85;
-      margin-bottom: 20px;
+    /* 유튜브 플레이어 스타일 추가 */
+    .video-container {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background: #000;
     }
 
     .btn {
@@ -147,11 +137,7 @@
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
     }
 
-    footer {
-      padding: 24px 16px 32px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
+    footer { padding: 24px 16px 32px; font-size: 14px; opacity: 0.9; }
   </style>
 </head>
 <body>
@@ -165,43 +151,43 @@
   </header>
 
   <main>
-  <div class="card-container">
+    <div class="card-container">
 
-    <div class="card">
-      <div class="song-title">그대가 살아서</div>
-      <div class="artist">정동원</div>
-      <div class="video-container">
-        <iframe width="100%" height="150" 
-          src="https://www.youtube-nocookie.com/embed/kL9e_lG3_mU?enablejsapi=1" 
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="card">
+        <div class="song-title">그대가 살아서</div>
+        <div class="artist">정동원</div>
+        <div class="video-container">
+          <iframe width="100%" height="150" 
+            src="https://www.youtube-nocookie.com/embed/ITYgHRzH1vE?enablejsapi=1" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a href="track1.html" class="btn">가사/상세 보기</a>
       </div>
-      <a href="track1.html" class="btn">가사 보기</a>
-    </div>
 
-    <div class="card">
-      <div class="song-title">혜성</div>
-      <div class="artist">윤하 (Younha)</div>
-      <div class="video-container">
-        <iframe width="100%" height="150" 
-          src="https://www.youtube-nocookie.com/embed/XmSjSre_2bU?enablejsapi=1" 
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="card">
+        <div class="song-title">혜성</div>
+        <div class="artist">윤하 (Younha)</div>
+        <div class="video-container">
+          <iframe width="100%" height="150" 
+            src="https://www.youtube-nocookie.com/embed/ZnR0JiQGxRE?enablejsapi=1" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a href="track2.html" class="btn">가사/상세 보기</a>
       </div>
-      <a href="track2.html" class="btn">가사 보기</a>
-    </div>
 
-    <div class="card">
-      <div class="song-title">나는 나만의 것</div>
-      <div class="artist">Elisabeth (뮤지컬)</div>
-      <div class="video-container">
-        <iframe width="100%" height="150" 
-          src="https://www.youtube-nocookie.com/embed/_U_G3_69V7M?enablejsapi=1" 
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="card">
+        <div class="song-title">이름에게</div>
+        <div class="artist">아이유 (IU)</div>
+        <div class="video-container">
+          <iframe width="100%" height="150" 
+            src="https://www.youtube-nocookie.com/embed/F5YmLkh8nV4?enablejsapi=1" 
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a href="track3.html" class="btn">가사/상세 보기</a>
       </div>
-      <a href="track3.html" class="btn">가사 보기</a>
-    </div>
 
-  </div>
-</main>
+    </div>
+  </main>
 
   <footer>감성을 지켜주는 음악들 ✨</footer>
 
@@ -224,4 +210,3 @@
   </script>
 </body>
 </html>
-
